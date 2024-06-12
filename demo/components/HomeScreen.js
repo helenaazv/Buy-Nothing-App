@@ -14,7 +14,7 @@ function HomeScreen({ navigation }) {
       </View>
       <View style={styles.aboutContainer}>
         <Text style={styles.aboutText}>
-         This app is designed to facilitate the free exchange of goods within a local campus, embodying the principles of generosity and sustainability.        
+         About: This app is designed to facilitate the free exchange of goods within a local campus, embodying the principles of generosity and sustainability.        
         </Text>
       </View>
       <View style={styles.buttonContainer}>
