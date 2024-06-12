@@ -6,21 +6,18 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 function HomeScreen({ navigation }) {
-
   return (
     <View style={styles.container}>
       <View style={styles.blueBox}>
         <Text style={styles.welcomeText}>Welcome to Buy Nothing Brandeis</Text>
       </View>
-      <View style={styles.aboutContainer}>
-        <Text style={styles.aboutText}>
-         About: This app is designed to facilitate the free exchange of goods within a local campus, embodying the principles of generosity and sustainability.        
-        </Text>
-      </View>
       <View style={styles.buttonContainer}>
         <View style={styles.buttonWrapper}>
+          <Button title="About" onPress={() => navigation.navigate("About")} /> 
+        </View>
+        <View style={styles.buttonWrapper}>
           <Button title="Giveaway" onPress={() => navigation.navigate("Post Item")} />
-        </View> 
+        </View>
         <View style={styles.buttonWrapper}>
           <Button title="Search" onPress={() => navigation.navigate("View Items")} />
         </View>
@@ -31,6 +28,7 @@ function HomeScreen({ navigation }) {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -49,36 +47,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: 'white',
-  },
-  aboutContainer: {
-    width: '80%',
-    alignItems: 'center',
-    marginBottom: 30,
-  },
-  aboutTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  aboutText: {
-    fontSize: 16,
-    textAlign: 'center',
-  },
-  inputContainer: {
-    width: '80%',
-    marginBottom: 30,
-  },
-  input: {
-    height: 40,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    paddingLeft: 10,
-    borderRadius: 5,
-  },
-  listItem: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
   },
   buttonContainer: {
     width: '80%',
