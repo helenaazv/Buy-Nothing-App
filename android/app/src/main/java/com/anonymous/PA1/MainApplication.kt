@@ -1,4 +1,4 @@
-package com.pa1
+package com.anonymous.PA1
 
 import android.app.Application
 import android.content.res.Configuration

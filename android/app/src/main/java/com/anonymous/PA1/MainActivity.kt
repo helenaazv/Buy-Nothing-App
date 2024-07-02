@@ -1,4 +1,4 @@
-package com.pa1
+package com.anonymous.PA1
 
 import android.os.Build
 import android.os.Bundle

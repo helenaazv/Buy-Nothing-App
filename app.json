@@ -2,7 +2,13 @@
   "expo": {
     "name": "PA1",
     "slug": "PA1",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "android": {
+      "package": "com.anonymous.PA1"
+    },
+    "ios": {
+      "bundleIdentifier": "com.anonymous.PA1"
+    }
   },
   "name": "PA1"
 }
