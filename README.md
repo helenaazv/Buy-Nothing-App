@@ -1,1 +1,1 @@
-This is the code for my Buy Nothing Brandeis App for the COSI153 Summer Class
+This is the code for the Buy Nothing Brandeis App I'm developing
