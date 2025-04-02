@@ -17,12 +17,12 @@ function HomeScreen({ navigation }) {
 
   return (
     <ImageBackground
-      source={{ uri: 'https://wallpapers.com/images/hd/brandeis-university-beautiful-campus-p7vorjnfjv7rpiuu.jpg' }}
+      source={{ uri: 'https://www.solidbackgrounds.com/images/1080x1920/1080x1920-dark-midnight-blue-solid-color-background.jpg' }}
       style={styles.backgroundImage}
     >
       <View style={styles.container}>
         <View style={styles.blueBox}>
-          <Text style={styles.welcomeText}>Buy Nothing Brandeis</Text>
+          <Text style={styles.welcomeText}>ReUse Hub</Text>
         </View>
         {!email ? (
           <View style={styles.inputContainer}>
@@ -44,21 +44,24 @@ function HomeScreen({ navigation }) {
             </TouchableOpacity>
           </View>
         ) : (
-          <View style={styles.whiteBox}>
-            <Text style={styles.loggedInText}>Logged in as: {email}</Text>
+          //<View style={styles.whiteBox}>
+            //<Text style={styles.loggedInText}>Logged in as: {email}</Text>
+          //</View>
+          null
+        )}
+        {email && (
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.buttonWrapper} onPress={() => navigation.navigate("Post Item")}>
+              <Text style={styles.buttonText}>Giveaway</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonWrapper} onPress={() => navigation.navigate("View Items")}>
+              <Text style={styles.buttonText}>Search</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonWrapper} onPress={() => navigation.navigate("Messages Screen")}>
+              <Text style={styles.buttonText}>Messages</Text>
+            </TouchableOpacity>
           </View>
         )}
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.buttonWrapper} onPress={() => navigation.navigate("Post Item")}>
-            <Text style={styles.buttonText}>Giveaway</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonWrapper} onPress={() => navigation.navigate("View Items")}>
-            <Text style={styles.buttonText}>Search</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonWrapper} onPress={() => navigation.navigate("Messages Screen")}>
-            <Text style={styles.buttonText}>Messages</Text>
-          </TouchableOpacity>
-        </View>
       </View>
     </ImageBackground>
   );
@@ -91,7 +94,7 @@ const styles = StyleSheet.create({
     width: '60%',
   },
   welcomeText: {
-    fontSize: 30,
+    fontSize: 50,
     fontWeight: 'bold',
     color: 'white',
   },
@@ -113,11 +116,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonWrapper: {
-    marginBottom: 20,
-    width: '100%',
-    borderRadius: 5,
-    backgroundColor: '#007bff',
-  },
+  marginBottom: 20,
+  width: '100%',
+  borderRadius: 5,
+  backgroundColor: 'rgba(0, 123, 255, 0.5)', // 50% transparency
+},
   buttonText: {
     fontSize: 16,
     color: 'white',

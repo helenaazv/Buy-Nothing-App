@@ -14,26 +14,29 @@ function PostItemScreen({ navigation }) {
   const [errorMessage, setErrorMessage] = useState('');
 
   const pickImage = async () => {
+    if (images.length > 0) {
+      alert("You can only add one image.");
+      return;
+    }
+  
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (status !== 'granted') {
       alert('Sorry, we need camera roll permissions!');
       return;
     }
-
+  
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
-      multiple: true,
-      maxSelectedAssets: 4 - images.length,
     });
-
+  
     if (!result.cancelled) {
-      const selectedImages = result.assets.map(asset => asset.uri);
-      setImages([...images, ...selectedImages]);
+      setImages([result.assets[0].uri]); // Only store the latest selected image
     }
   };
+  
 
   const postItem = async () => {
     if (!itemName || !itemDescription || images.length === 0) {
@@ -100,12 +103,12 @@ function PostItemScreen({ navigation }) {
       )}
 
       <View style={styles.imagePickerContainer}>
-        {images.map((imageUri, index) => (
-          <Image key={index} source={{ uri: imageUri }} style={styles.image} />
-        ))}
-        {images.length < 2 && (
+        {images.length > 0 && (
+          <Image source={{ uri: images[0] }} style={styles.image} />
+        )}
+        {images.length === 0 && (
           <TouchableOpacity style={styles.imagePicker} onPress={pickImage}>
-            <Text style={styles.imageText}>Add Pictures</Text>
+            <Text style={styles.imageText}>Add Picture</Text>
           </TouchableOpacity>
         )}
       </View>
